@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hyun</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <link href="fonts/styles.css" rel='stylesheet' type='text/css' />
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+</head>
+<body>
+	<div class="container">
+		<div class="help">
+			<a href="#"><span class="qm"> </span> HELP</a>
+		</div>
+
+		<div class="cashback-header">
+			<div class="back">
+				<a href="#"><span class="bk"> </span> BACK</a>
+			</div>
+			<div class="cashback">
+				<h1>Cash back</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="avail">
+				<p>Available funds: $<span class="fund">222.00</span></p>
+			</div>
+			<div class="slider">
+				<input type="range" id="cashslider" min="0" step="1" value="0">
+			</div>
+			<div class="total">
+				<p>$<span class="tot">0</span> <span class="ca"></span></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="total2">
+				<p>Total <span class="pull-right">$<span class="tot"><strong>0</strong></span></span></p>
+			</div>
+			<div class="confirm">
+				<a href="#">CONFIRM <span class="cf"> </span></a>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="cancel">
+				<a href="#">Cancel<br>Transaction<span class="cc"></span></a>
+			</div>
+		</div>
+
+
+	</div>
+
+	<script type="text/javascript">
+
+		$(document).ready(function() {
+			var total_fund = ($(".fund").text());
+
+			$("#cashslider").attr("max", total_fund);
+
+			$("#cashslider").on("click", function() {
+				var selected_fund = $("#cashslider").val();
+				$(".tot").text(selected_fund);
+				$(".fund").text(total_fund-selected_fund);
+			});
+		});
+
+	</script>
+</body>
+</html>
